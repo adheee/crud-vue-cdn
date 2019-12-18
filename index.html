@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Data user</title>
+
+  <!-- bootstrap css -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- style css -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="container" id="data">
+    <h3>Data User Example</h3>
+    <hr>
+
+    <div class="text-center">
+      <button class="btn btn-primary btn-custom" data-toggle="modal" data-target="#inputdata" @click="tambahuser">
+        tambah data </button>
+    </div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Nama</th>
+          <th scope="col">Username</th>
+          <th scope="col">Email</th>
+          <th scope="col">Alamat</th>
+          <th scope="col">Tempat tanggal lahir</th>
+          <th scope="col">Jenis kelamin</th>
+          <th scope="col">No. Telfon</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="n in users">
+          <td> {{ n.nama }} </td>
+          <td> {{ n.username }} </td>
+          <td> {{ n.email }} </td>
+          <td> {{ n.alamat }} </td>
+          <td> {{ n.tempat }} {{ n.tgl }} </td>
+          <td> {{ n.jkel }} </td>
+          <td> {{ n.telp }} </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Modal -->
+    <div class="modal fade" id="inputdata" tabindex="-1" role="dialog" aria-labelledby="inputdata" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="nama">Nama</label>
+                <input type="text" class="form-control" id="nama" v-model="inputdatauser.nama">
+              </div>
+              <div class=" form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" v-model="inputdatauser.username">
+              </div>
+              <div class=" form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" v-model="inputdatauser.email">
+              </div>
+              <div class="form-group">
+                <label for="username">Alamat</label>
+                <input type="text" class="form-control" id="alamat" v-model="inputdatauser.alamat">
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col">
+                    <label for="username">Tempat</label>
+                    <input type="text" class="form-control" v-model="inputdatauser.tempat">
+                  </div>
+                  <div class="col">
+                    <label for="username">Tanggal lahir</label>
+                    <input type="date" class="form-control" v-model="inputdatauser.tgl">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="jeniskelamin">Jenis kelamin</label>
+                <select class="form-control" id="jeniskelamin" v-model="inputdatauser.jkel">
+                  <option value="laki-laki">Laki - laki</option>
+                  <option value="perempuan">Perempuan</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="telp">No telfon</label>
+                <input type="tel" class="form-control" id="telp" v-model="inputdatauser.telp">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            <button type="button" class="btn btn-primary" @click="tambah(inputdatauser)">Tambah</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <!-- vue js -->
+  <script src="js/vue.js"></script>
+  <!-- bootstrap js -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <!-- style js -->
+  <script src="js/style.js"></script>
+</body>
+
+</html>
