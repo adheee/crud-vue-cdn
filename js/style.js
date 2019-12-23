@@ -22,5 +22,11 @@ new Vue({
         'telp': datauser.telp
       });
     },
+    hapususer: function (datauser) {
+      this.index = this.users.indexOf(datauser);
+    },
+    hapus: function (datauser) {
+      this.users.splice(this.index, 1);
+    }
   }
 })
