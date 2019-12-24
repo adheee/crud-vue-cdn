@@ -39,6 +39,9 @@
         </tr>
       </thead>
       <tbody>
+        <tr v-if="front == true" key="front" class="text-center">
+          <td colspan="8">Im new here, I want an account</td>
+        </tr>
         <tr v-for="n in users">
           <td> {{ n.nama }} </td>
           <td> {{ n.username }} </td>

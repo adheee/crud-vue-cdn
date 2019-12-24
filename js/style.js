@@ -3,7 +3,8 @@ new Vue({
   data: function () {
     return {
       users: [],
-      inputdatauser: {}
+      inputdatauser: {},
+      front: true
     }
   },
   methods: {
@@ -21,11 +22,13 @@ new Vue({
         'jkel': datauser.jkel,
         'telp': datauser.telp
       });
+      this.front = false;
     },
     hapususer: function (datauser) {
       this.index = this.users.indexOf(datauser);
+      this.front = true;
     },
-    hapus: function (datauser) {
+    hapus: function () {
       this.users.splice(this.index, 1);
     }
   }
