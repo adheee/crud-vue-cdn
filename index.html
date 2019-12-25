@@ -28,6 +28,7 @@
     <table class="table table-striped">
       <thead>
         <tr>
+          <th scope="col">#</th>
           <th scope="col">Nama</th>
           <th scope="col">Username</th>
           <th scope="col">Email</th>
@@ -39,10 +40,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-if="front == true" key="front" class="text-center">
-          <td colspan="8">Im new here, I want an account</td>
+        <tr v-show="pesan" class="text-center">
+          <td colspan="9">Im new here, I want an account</td>
         </tr>
-        <tr v-for="n in users">
+        <tr v-for="(n, index) in users">
+          <td> {{ index + 1 }} </td>
           <td> {{ n.nama }} </td>
           <td> {{ n.username }} </td>
           <td> {{ n.email }} </td>

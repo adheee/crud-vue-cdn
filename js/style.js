@@ -4,7 +4,7 @@ new Vue({
     return {
       users: [],
       inputdatauser: {},
-      front: true
+      pesan: true
     }
   },
   methods: {
@@ -22,11 +22,14 @@ new Vue({
         'jkel': datauser.jkel,
         'telp': datauser.telp
       });
-      this.front = false;
+      if (this.users.length <= 0) {
+        this.pesan = true;
+      } else if (this.users.length >= 1) {
+        this.pesan = false;
+      }
     },
     hapususer: function (datauser) {
       this.index = this.users.indexOf(datauser);
-      this.front = true;
     },
     hapus: function () {
       this.users.splice(this.index, 1);
