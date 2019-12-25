@@ -22,9 +22,7 @@ new Vue({
         'jkel': datauser.jkel,
         'telp': datauser.telp
       });
-      if (this.users.length <= 0) {
-        this.pesan = true;
-      } else if (this.users.length >= 1) {
+      if (this.users.length >= 1) {
         this.pesan = false;
       }
     },
@@ -33,6 +31,9 @@ new Vue({
     },
     hapus: function () {
       this.users.splice(this.index, 1);
+      if (this.users.length <= 0) {
+        this.pesan = true;
+      }
     }
   }
 })
