@@ -9,3 +9,7 @@ h3 {
 .btn-custom {
   margin: 20px 0 20px 0;
 }
+
+.d-flex {
+  justify-content: space-between;
+}

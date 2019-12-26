@@ -20,9 +20,10 @@
     <h3>Data User Example</h3>
     <hr>
 
-    <div class="text-center">
+    <div class="d-flex form-inline">
       <button class="btn btn-primary btn-custom" data-toggle="modal" data-target="#inputdata" @click="tambahuser">
         tambah data <i class="ti ti-plus"></i> </button>
+      <input type="text" class="form-control" placeholder="cari nama user" v-model="cari">
     </div>
 
     <table class="table table-striped">
@@ -41,9 +42,9 @@
       </thead>
       <tbody>
         <tr v-show="pesan" class="text-center">
-          <td colspan="9">belum ada data</td>
+          <td colspan="9">belum ada data user</td>
         </tr>
-        <tr v-for="(n, index) in users">
+        <tr v-for="(n, index) in datafilter">
           <td> {{ index + 1 }} </td>
           <td> {{ n.nama }} </td>
           <td> {{ n.username }} </td>
@@ -76,42 +77,42 @@
             <form>
               <div class="form-group">
                 <label for="nama">Nama</label>
-                <input type="text" class="form-control" id="nama" v-model="inputdatauser.nama">
+                <input type="text" class="form-control" id="nama" v-model="inputdatauser.nama" required>
               </div>
               <div class=" form-group">
                 <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" v-model="inputdatauser.username">
+                <input type="text" class="form-control" id="username" v-model="inputdatauser.username" required>
               </div>
               <div class=" form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" v-model="inputdatauser.email">
+                <input type="email" class="form-control" id="email" v-model="inputdatauser.email" required>
               </div>
               <div class="form-group">
                 <label for="username">Alamat</label>
-                <input type="text" class="form-control" id="alamat" v-model="inputdatauser.alamat">
+                <input type="text" class="form-control" id="alamat" v-model="inputdatauser.alamat" required>
               </div>
               <div class="form-group">
                 <div class="form-row">
                   <div class="col">
                     <label for="username">Tempat</label>
-                    <input type="text" class="form-control" v-model="inputdatauser.tempat">
+                    <input type="text" class="form-control" v-model="inputdatauser.tempat" required>
                   </div>
                   <div class="col">
                     <label for="username">Tanggal lahir</label>
-                    <input type="date" class="form-control" v-model="inputdatauser.tgl">
+                    <input type="date" class="form-control" v-model="inputdatauser.tgl" required>
                   </div>
                 </div>
               </div>
               <div class="form-group">
                 <label for="jeniskelamin">Jenis kelamin</label>
-                <select class="form-control" id="jeniskelamin" v-model="inputdatauser.jkel">
+                <select class="form-control" id="jeniskelamin" v-model="inputdatauser.jkel" required>
                   <option value="laki-laki">Laki - laki</option>
                   <option value="perempuan">Perempuan</option>
                 </select>
               </div>
               <div class="form-group">
                 <label for="telp">No telfon</label>
-                <input type="tel" class="form-control" id="telp" v-model="inputdatauser.telp">
+                <input type="tel" class="form-control" id="telp" v-model="inputdatauser.telp" required>
               </div>
             </form>
           </div>

@@ -4,7 +4,8 @@ new Vue({
     return {
       users: [],
       inputdatauser: {},
-      pesan: true
+      pesan: true,
+      cari: ''
     }
   },
   methods: {
@@ -33,6 +34,17 @@ new Vue({
       this.users.splice(this.index, 1);
       if (this.users.length <= 0) {
         this.pesan = true;
+      }
+    }
+  },
+  computed: {
+    datafilter() {
+      if (this.cari) {
+        return this.users.filter((item) => {
+          return item.nama.startsWith(this.cari);
+        })
+      } else {
+        return this.users;
       }
     }
   }
