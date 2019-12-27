@@ -5,11 +5,13 @@ new Vue({
       users: [],
       inputdatauser: {},
       pesan: true,
-      cari: ''
+      cari: '',
+      enable: false
     }
   },
   methods: {
     tambahuser: function () {
+      this.enable = true;
       this.inputdatauser = {};
     },
     tambah: function (datauser) {
@@ -26,6 +28,29 @@ new Vue({
       if (this.users.length >= 1) {
         this.pesan = false;
       }
+    },
+    edituser: function (datauser) {
+      this.enable = false;
+      this.index = this.users.indexOf(datauser);
+      this.inputdatauser.nama = datauser.nama;
+      this.inputdatauser.username = datauser.username;
+      this.inputdatauser.email = datauser.email;
+      this.inputdatauser.alamat = datauser.alamat;
+      this.inputdatauser.tempat = datauser.tempat;
+      this.inputdatauser.tgl = datauser.tgl;
+      this.inputdatauser.jkel = datauser.jkel;
+      this.inputdatauser.telp = datauser.telp;
+    },
+    update: function (datauser) {
+      this.users[this.index].nama = datauser.nama;
+      this.users[this.index].username = datauser.username;
+      this.users[this.index].email = datauser.email;
+      this.users[this.index].alamat = datauser.alamat;
+      this.users[this.index].tempat = datauser.tempat;
+      this.users[this.index].tgl = datauser.tgl;
+      this.users[this.index].jkel = datauser.jkel;
+      this.users[this.index].telp = datauser.telp;
+      this.inputdatauser = {};
     },
     hapususer: function (datauser) {
       this.index = this.users.indexOf(datauser);

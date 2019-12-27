@@ -58,6 +58,10 @@
               title="hapus data">
               <i class="ti ti-trash"></i>
             </button>
+            <button class="btn btn-primary" @click="edituser(n)" data-toggle="modal" data-target="#inputdata"
+              title="edit data">
+              <i class="ti ti-pencil"></i>
+            </button>
           </td>
         </tr>
       </tbody>
@@ -118,7 +122,8 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-            <button type="button" class="btn btn-primary" @click="tambah(inputdatauser)">Tambah</button>
+            <button type="button" class="btn btn-primary" @click="tambah(inputdatauser)" v-if="enable">Tambah</button>
+            <button type="button" class="btn btn-success" @click="update(inputdatauser)" v-else="enable">Update</button>
           </div>
         </div>
       </div>
