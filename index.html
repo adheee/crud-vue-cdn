@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="css/style.css">
   <!-- icon -->
   <link rel="stylesheet" href="css/themify-icons.css">
+  <!-- swal -->
+  <link rel="stylesheet" href="css/sweetalert2.min.css">
 </head>
 
 <body>
@@ -54,8 +56,7 @@
           <td> {{ n.jkel }} </td>
           <td> {{ n.telp }} </td>
           <td class="text-center">
-            <button class="btn btn-danger" @click="hapususer(n)" data-toggle="modal" data-target="#hapusdata"
-              title="hapus data">
+            <button class="btn btn-danger" @click="hapususer(n)" title="hapus data">
               <i class="ti ti-trash"></i>
             </button>
             <button class="btn btn-primary" @click="edituser(n)" data-toggle="modal" data-target="#inputdata"
@@ -167,6 +168,8 @@
   <script src="js/bootstrap.min.js"></script>
   <!-- style js -->
   <script src="js/style.js"></script>
+  <!-- swal -->
+  <script src="js/sweetalert2.all.min.js"></script>
 </body>
 
 </html>

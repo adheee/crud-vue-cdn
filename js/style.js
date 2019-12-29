@@ -54,12 +54,26 @@ new Vue({
     },
     hapususer: function (datauser) {
       this.index = this.users.indexOf(datauser);
-    },
-    hapus: function () {
-      this.users.splice(this.index, 1);
-      if (this.users.length <= 0) {
-        this.pesan = true;
-      }
+      Swal.fire({
+        title: 'Anda Yakin?',
+        text: "Anda tidak dapat mengembalikan data yang telah di hapus!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Lanjutkan Hapus!'
+      }).then((users) => {
+        if (this.users.splice(this.index, 1)) {
+          Swal.fire(
+            'Berhasil!',
+            'Data anda berhasil di hapus.',
+            'success'
+          )
+        }
+        if (this.users.length <= 0) {
+          this.pesan = true;
+        }
+      })
     }
   },
   computed: {
