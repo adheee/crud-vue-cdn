@@ -25,6 +25,11 @@ new Vue({
         'jkel': datauser.jkel,
         'telp': datauser.telp
       });
+      Swal.fire(
+        'Berhasil!',
+        'Berhasil menambah data.',
+        'success'
+      )
       if (this.users.length >= 1) {
         this.pesan = false;
       }
@@ -42,6 +47,11 @@ new Vue({
       this.inputdatauser.telp = datauser.telp;
     },
     update: function (datauser) {
+      Swal.fire(
+        'Berhasil!',
+        'Data anda berhasil di hapus.',
+        'success'
+      )
       this.users[this.index].nama = datauser.nama;
       this.users[this.index].username = datauser.username;
       this.users[this.index].email = datauser.email;
