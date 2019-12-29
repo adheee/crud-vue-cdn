@@ -15,21 +15,22 @@ new Vue({
       this.inputdatauser = {};
     },
     tambah: function (datauser) {
-      this.users.push({
-        'nama': datauser.nama,
-        'username': datauser.username,
-        'email': datauser.email,
-        'alamat': datauser.alamat,
-        'tempat': datauser.tempat,
-        'tgl': datauser.tgl,
-        'jkel': datauser.jkel,
-        'telp': datauser.telp
-      });
-      Swal.fire(
-        'Berhasil!',
-        'Berhasil menambah data.',
-        'success'
-      )
+      if (this.users.push({
+          'nama': datauser.nama,
+          'username': datauser.username,
+          'email': datauser.email,
+          'alamat': datauser.alamat,
+          'tempat': datauser.tempat,
+          'tgl': datauser.tgl,
+          'jkel': datauser.jkel,
+          'telp': datauser.telp
+        })) {
+        Swal.fire(
+          'Berhasil!',
+          'Berhasil menambah data.',
+          'success'
+        )
+      }
       if (this.users.length >= 1) {
         this.pesan = false;
       }
@@ -49,7 +50,7 @@ new Vue({
     update: function (datauser) {
       Swal.fire(
         'Berhasil!',
-        'Data anda berhasil di hapus.',
+        'Data anda berhasil di update.',
         'success'
       )
       this.users[this.index].nama = datauser.nama;
