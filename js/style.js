@@ -62,8 +62,9 @@ new Vue({
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Ya, Lanjutkan Hapus!'
-      }).then((users) => {
-        if (this.users.splice(this.index, 1)) {
+      }).then((result) => {
+        if (result.value) {
+          this.users.splice(this.index, 1)
           Swal.fire(
             'Berhasil!',
             'Data anda berhasil di hapus.',
